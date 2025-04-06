@@ -1,0 +1,3 @@
+SECRET_KEY=your-very-secret-key
+DATABASE_URL=sqlite:///breaches.db
+HIBP_API_KEY=your-haveibeenpwned-api-key

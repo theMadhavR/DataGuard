@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DataGuard - Monitor Your Digital Footprint</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container" id="app-container">
+        <!-- Navigation -->
+        <nav class="navbar">
+            <div class="logo">DataGuard</div>
+            <div class="nav-links">
+                <a href="#" id="home-link">Home</a>
+                <a href="#" id="dashboard-link">Dashboard</a>
+                <a href="#" id="login-link">Login</a>
+                <a href="#" id="register-link">Register</a>
+                <a href="#" id="logout-link" style="display: none;">Logout</a>
+            </div>
+        </nav>
+
+        <!-- Main Content - Dynamically loaded -->
+        <main id="main-content">
+            <!-- Home content will be loaded here by default -->
+        </main>
+
+        <!-- Footer -->
+        <footer>
+            <p>&copy; 2023 DataGuard. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">Contact Us</a>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Templates -->
+    <template id="home-template">
+        <section class="hero">
+            <h1>Protect Your Digital Identity</h1>
+            <p>Monitor your personal information across the web and get alerted when it appears in data breaches.</p>
+            <button id="get-started-btn" class="btn-primary">Get Started</button>
+        </section>
+        
+        <section class="features">
+            <div class="feature-card">
+                <i class="fas fa-shield-alt"></i>
+                <h3>Real-time Monitoring</h3>
+                <p>Continuously scan for your data across known breaches.</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-bell"></i>
+                <h3>Instant Alerts</h3>
+                <p>Get notified immediately when your data is compromised.</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-chart-line"></i>
+                <h3>Detailed Reports</h3>
+                <p>Understand where and how your data was exposed.</p>
+            </div>
+        </section>
+    </template>
+
+    <template id="login-template">
+        <section class="auth-form">
+            <h2>Login to Your Account</h2>
+            <form id="login-form">
+                <div class="form-group">
+                    <label for="login-email">Email</label>
+                    <input type="email" id="login-email" required>
+                </div>
+                <div class="form-group">
+                    <label for="login-password">Password</label>
+                    <input type="password" id="login-password" required>
+                </div>
+                <button type="submit" class="btn-primary">Login</button>
+            </form>
+            <p>Don't have an account? <a href="#" id="switch-to-register">Register here</a></p>
+        </section>
+    </template>
+
+    <template id="register-template">
+        <section class="auth-form">
+            <h2>Create an Account</h2>
+            <form id="register-form">
+                <div class="form-group">
+                    <label for="register-email">Email</label>
+                    <input type="email" id="register-email" required>
+                </div>
+                <div class="form-group">
+                    <label for="register-password">Password</label>
+                    <input type="password" id="register-password" required>
+                </div>
+                <div class="form-group">
+                    <label for="register-confirm-password">Confirm Password</label>
+                    <input type="password" id="register-confirm-password" required>
+                </div>
+                <button type="submit" class="btn-primary">Register</button>
+            </form>
+            <p>Already have an account? <a href="#" id="switch-to-login">Login here</a></p>
+        </section>
+    </template>
+
+    <template id="dashboard-template">
+        <section class="dashboard-header">
+            <h2>Your Security Dashboard</h2>
+            <button id="check-breaches-btn" class="btn-primary">Check for New Breaches</button>
+        </section>
+        
+        <section class="dashboard-summary">
+            <div class="summary-card">
+                <h3>Monitored Items</h3>
+                <p class="highlight" id="monitored-items-count">0</p>
+            </div>
+            <div class="summary-card">
+                <h3>Total Breaches</h3>
+                <p class="highlight" id="total-breaches-count">0</p>
+            </div>
+            <div class="summary-card">
+                <h3>Last Checked</h3>
+                <p id="last-checked">Never</p>
+            </div>
+        </section>
+        
+        <section class="dashboard-actions">
+            <button class="btn-secondary" id="add-item-btn">Add Monitored Item</button>
+            <button class="btn-secondary" id="view-breaches-btn">View All Breaches</button>
+        </section>
+        
+        <section class="recent-breaches">
+            <h3>Recent Breach Events</h3>
+            <div class="breaches-list" id="breaches-list">
+                <!-- Breaches will be loaded here -->
+                <p class="empty-message">No breach events found.</p>
+            </div>
+        </section>
+        
+        <!-- Add Item Modal -->
+        <div class="modal" id="add-item-modal">
+            <div class="modal-content">
+                <span class="close-modal">&times;</span>
+                <h3>Add Monitored Item</h3>
+                <form id="add-item-form">
+                    <div class="form-group">
+                        <label for="item-type">Type</label>
+                        <select id="item-type" required>
+                            <option value="email">Email</option>
+                            <option value="password">Password</option>
+                            <option value="credit_card">Credit Card</option>
+                            <option value="phone">Phone Number</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="item-value">Value</label>
+                        <input type="text" id="item-value" required>
+                    </div>
+                    <button type="submit" class="btn-primary">Add Item</button>
+                </form>
+            </div>
+        </div>
+    </template>
+
+    <script src="auth.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
