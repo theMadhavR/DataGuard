@@ -9,7 +9,6 @@
 </head>
 <body>
     <div class="container" id="app-container">
-        <!-- Navigation -->
         <nav class="navbar">
             <div class="logo">DataGuard</div>
             <div class="nav-links">
@@ -21,12 +20,9 @@
             </div>
         </nav>
 
-        <!-- Main Content - Dynamically loaded -->
         <main id="main-content">
-            <!-- Home content will be loaded here by default -->
-        </main>
+            </main>
 
-        <!-- Footer -->
         <footer>
             <p>&copy; 2023 DataGuard. All rights reserved.</p>
             <div class="footer-links">
@@ -37,12 +33,11 @@
         </footer>
     </div>
 
-    <!-- Templates -->
     <template id="home-template">
         <section class="hero">
             <h1>Protect Your Digital Identity</h1>
             <p>Monitor your personal information across the web and get alerted when it appears in data breaches.</p>
-            <button id="get-started-btn" class="btn-primary">Get Started</button>
+            <button id="get-started-btn" class="btn btn-primary">Get Started</button>
         </section>
         
         <section class="features">
@@ -76,7 +71,7 @@
                     <label for="login-password">Password</label>
                     <input type="password" id="login-password" required>
                 </div>
-                <button type="submit" class="btn-primary">Login</button>
+                <button type="submit" class="btn btn-primary">Login</button>
             </form>
             <p>Don't have an account? <a href="#" id="switch-to-register">Register here</a></p>
         </section>
@@ -98,7 +93,7 @@
                     <label for="register-confirm-password">Confirm Password</label>
                     <input type="password" id="register-confirm-password" required>
                 </div>
-                <button type="submit" class="btn-primary">Register</button>
+                <button type="submit" class="btn btn-primary">Register</button>
             </form>
             <p>Already have an account? <a href="#" id="switch-to-login">Login here</a></p>
         </section>
@@ -107,7 +102,7 @@
     <template id="dashboard-template">
         <section class="dashboard-header">
             <h2>Your Security Dashboard</h2>
-            <button id="check-breaches-btn" class="btn-primary">Check for New Breaches</button>
+            <button id="check-breaches-btn" class="btn btn-secondary">Check for New Breaches</button>
         </section>
         
         <section class="dashboard-summary">
@@ -126,19 +121,17 @@
         </section>
         
         <section class="dashboard-actions">
-            <button class="btn-secondary" id="add-item-btn">Add Monitored Item</button>
-            <button class="btn-secondary" id="view-breaches-btn">View All Breaches</button>
+            <button class="btn btn-primary" id="add-item-btn">Add Monitored Item</button>
+            <button class="btn btn-secondary" id="view-breaches-btn">View All Breaches</button>
         </section>
         
         <section class="recent-breaches">
             <h3>Recent Breach Events</h3>
             <div class="breaches-list" id="breaches-list">
-                <!-- Breaches will be loaded here -->
                 <p class="empty-message">No breach events found.</p>
             </div>
         </section>
         
-        <!-- Add Item Modal -->
         <div class="modal" id="add-item-modal">
             <div class="modal-content">
                 <span class="close-modal">&times;</span>
@@ -157,13 +150,41 @@
                         <label for="item-value">Value</label>
                         <input type="text" id="item-value" required>
                     </div>
-                    <button type="submit" class="btn-primary">Add Item</button>
+                    <button type="submit" class="btn btn-primary">Add Item</button>
                 </form>
             </div>
         </div>
     </template>
-
+    
     <script src="auth.js"></script>
     <script src="app.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const animateOnScroll = () => {
+        const elements = document.querySelectorAll('.feature-card, .summary-card');
+        
+        elements.forEach(el => {
+            const elTop = el.getBoundingClientRect().top;
+            const windowHeight = window.innerHeight;
+            
+            if (elTop < windowHeight - 100) {
+            el.style.opacity = '1';
+            el.style.transform = 'translateY(0)';
+            }
+        });
+        };
+        
+        animateOnScroll();
+        window.addEventListener('scroll', animateOnScroll);
+        document.querySelectorAll('button[type="submit"]').forEach(btn => {
+        btn.addEventListener('click', function() {
+            if (!this.querySelector('.loading')) {
+            this.innerHTML += '<span class="loading"></span>';
+            this.disabled = true;
+            }
+        });
+        });
+    });
+    </script>
 </body>
 </html>
