@@ -60,7 +60,7 @@ The frontend is a static single-page application.
 2.  All frontend API calls are handled by the JavaScript files (`app.js` and `auth.js`) and will interact with the local Flask server you started in the previous step.
 
 ## Project Structure
-.
+.  
 ├── main.py             # Flask backend with API endpoints  
 ├── requirements.txt    # Python dependencies  
 ├── index.html          # Main application page with templates  
