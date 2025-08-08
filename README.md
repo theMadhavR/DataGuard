@@ -61,12 +61,12 @@ The frontend is a static single-page application.
 
 ## Project Structure
 .
-├── main.py             # Flask backend with API endpoints
-├── requirements.txt    # Python dependencies
-├── index.html          # Main application page with templates
-├── styles.css          # All CSS for styling and animations
-├── app.js              # Core frontend logic, event handlers, and view management
-└── auth.js             # Authentication and API functions (simulated)
+├── main.py             # Flask backend with API endpoints  
+├── requirements.txt    # Python dependencies  
+├── index.html          # Main application page with templates  
+├── styles.css          # All CSS for styling and animations  
+├── app.js              # Core frontend logic, event handlers, and view management  
+└── auth.js             # Authentication and API functions (simulated)  
 
 ## How to Use
 1.  Open `index.html` in your browser.
