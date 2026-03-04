@@ -19,7 +19,7 @@ DataGuard is a web application designed to help users monitor their digital foot
 - **JavaScript (ES6+):** For all client-side logic, API calls, and dynamic content rendering.
 - **Font Awesome:** For icons.
 
-### Backend (Simulated)
+### Backend 
 - **Python:** The core language for the backend logic.
 - **Flask:** A lightweight web framework for handling API routes.
 - **SQLAlchemy:** An ORM for database interactions.
